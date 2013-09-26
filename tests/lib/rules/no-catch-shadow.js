@@ -28,8 +28,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var foo = 1; try { bar(); } catch(foo) { }",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 2];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [2];
 
             var messages = eslint.verify(topic, config);
 
@@ -45,8 +46,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "function foo(){} try { bar(); } catch(foo) { }",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 2];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [2];
 
             var messages = eslint.verify(topic, config);
 
@@ -62,8 +64,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "function foo(){ try { bar(); } catch(foo) { } }",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 2];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [2];
 
             var messages = eslint.verify(topic, config);
 
@@ -79,8 +82,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var foo = function(){ try { bar(); } catch(foo) { } };",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 2];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [2];
 
             var messages = eslint.verify(topic, config);
 
@@ -96,8 +100,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var foo = 1; try { bar(); } catch(baz) { }",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 2];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [2];
 
             var messages = eslint.verify(topic, config);
 

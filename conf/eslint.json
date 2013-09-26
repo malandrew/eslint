@@ -55,9 +55,13 @@
         "new-cap": 1,
         "semi": 1,
         "use-isnan": 1,
-        "quotes": [1, "double"],
+        "quotes": 1,
         "regex-spaces": 1,
         "no-multi-str": 1,
         "unnecessary-strict": 1
+    },
+
+    "ruleConfigs": {
+        "quotes": ["double"]
     }
 }

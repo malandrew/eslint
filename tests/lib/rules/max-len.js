@@ -29,8 +29,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 80, 4];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [80, 4];
 
             var messages = eslint.verify(topic, config);
 
@@ -44,8 +45,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 10, 4];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [10, 4];
 
             var messages = eslint.verify(topic, config);
 
@@ -62,8 +64,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 15, 4];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [15, 4];
 
             var messages = eslint.verify(topic, config);
 
@@ -80,8 +83,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 15, 4];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [15, 4];
 
             var messages = eslint.verify(topic, config);
 
@@ -98,8 +102,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 15, 1];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [15, 1];
 
             var messages = eslint.verify(topic, config);
 

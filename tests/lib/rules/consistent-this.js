@@ -28,8 +28,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var context = this",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "that"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["that"];
 
             var messages = eslint.verify(topic, config);
 
@@ -48,8 +49,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var that = this",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "self"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["self"];
 
             var messages = eslint.verify(topic, config);
 
@@ -68,8 +70,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var foo = 42, self = this",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "that"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["that"];
 
             var messages = eslint.verify(topic, config);
 
@@ -88,8 +91,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var foo = 42, self = this",
 
         "should not report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "self"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["self"];
 
             var messages = eslint.verify(topic, config);
 
@@ -102,8 +106,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var self = 42",
 
         "should not report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "that"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["that"];
 
             var messages = eslint.verify(topic, config);
 
@@ -116,8 +121,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var self = 42",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "self"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["self"];
 
             var messages = eslint.verify(topic, config);
 
@@ -137,8 +143,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var self",
 
         "should not report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "that"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["that"];
 
             var messages = eslint.verify(topic, config);
 
@@ -151,8 +158,9 @@ vows.describe(RULE_ID).addBatch({
         topic: "var self",
 
         "should report a violation": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "self"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["self"];
 
             var messages = eslint.verify(topic, config);
 

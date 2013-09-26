@@ -29,8 +29,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 2];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [2];
 
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 1);
@@ -46,8 +47,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should not report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 3];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [3];
 
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 0);
@@ -74,8 +76,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 1];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [1];
 
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 1);
@@ -91,8 +94,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 1];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [1];
 
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 1);
@@ -108,8 +112,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 1];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [1];
 
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 2);

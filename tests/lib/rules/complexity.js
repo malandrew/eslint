@@ -23,16 +23,20 @@ var RULE_ID = "complexity";
 
 function getComplexityAssertion(threshold) {
     return function(topic) {
-        var config = { rules: {} };
+        var config = { rules: {}, ruleConfigs: {} };
 
         // Test that given a lower threshold, a violation is created
-        config.rules[RULE_ID] = [1, threshold - 1];
+        config.rules[RULE_ID] = 1;
+        config.ruleConfigs[RULE_ID] = [threshold - 1];
+
         var messages = eslint.verify(topic, config);
         assert.equal(messages.length, 1);
         assert.equal(messages[0].ruleId, RULE_ID);
 
         // Test that given the right threshold, no violation is created
-        config.rules[RULE_ID] = [1, threshold];
+        config.rules[RULE_ID] = 1;
+        config.ruleConfigs[RULE_ID] = [threshold];
+
         var messages = eslint.verify(topic, config);
         assert.equal(messages.length, 0);
     }
@@ -132,8 +136,9 @@ vows.describe(RULE_ID).addBatch({
     "When evaluating an if statement": {
         topic: "if (foo) { bar(); }",
         "should not report a violation": function (topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 3];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [3];
 
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 0);
@@ -143,8 +148,10 @@ vows.describe(RULE_ID).addBatch({
     "When evaluating a simple function with 2 complex inner functions": {
         topic: "function a(x) {(function() {while(true){'foo';}})(); (function() {while(true){'bar';}})();}",
         "should report 2 violations for the inner functions": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 1];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [1];
+
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 2);
             assert.equal(messages[0].ruleId, RULE_ID);
@@ -154,8 +161,10 @@ vows.describe(RULE_ID).addBatch({
     "When evaluating a simple function with 1 complex inner function and 1 simple inner function": {
         topic: "function a(x) {(function() {while(true){'foo';}})(); (function() {'bar';})();}",
         "should report 1 violations for 1 inner function": function(topic) {
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, 1];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = [1];
+
             var messages = eslint.verify(topic, config);
             assert.equal(messages.length, 1);
             assert.equal(messages[0].ruleId, RULE_ID);

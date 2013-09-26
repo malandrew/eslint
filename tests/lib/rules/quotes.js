@@ -29,8 +29,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should not report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "single"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["single"];
 
             var messages = eslint.verify(topic, config);
 
@@ -44,8 +45,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "single"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["single"];
 
             var messages = eslint.verify(topic, config);
 
@@ -61,8 +63,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should not report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "double"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["double"];
 
             var messages = eslint.verify(topic, config);
 
@@ -78,8 +81,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "double"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["double"];
 
             var messages = eslint.verify(topic, config);
 
@@ -93,8 +97,9 @@ vows.describe(RULE_ID).addBatch({
 
         "should not report a violation": function(topic) {
 
-            var config = { rules: {} };
-            config.rules[RULE_ID] = [1, "single"];
+            var config = { rules: {}, ruleConfigs: {} };
+            config.rules[RULE_ID] = 1;
+            config.ruleConfigs[RULE_ID] = ["single"];
 
             var messages = eslint.verify(topic, config);
 
