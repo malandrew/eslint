@@ -125,6 +125,28 @@ vows.describe("options").addBatch({
 
     },
 
+    "when passed -i": {
+
+        topic: [ "-i" ],
+
+        "should return true for .i": function(topic) {
+            var currentOptions = options.parse(topic);
+            assert.isTrue(currentOptions.i);
+        }
+
+    },
+
+    "when passed --install": {
+
+        topic: [ "--install" ],
+
+        "should return true for .i": function(topic) {
+            var currentOptions = options.parse(topic);
+            assert.isTrue(currentOptions.i);
+        }
+
+    },
+
     "when asking for help": {
 
         topic: "",

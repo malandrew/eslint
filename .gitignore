@@ -5,3 +5,4 @@ lib/rules/index.js
 build/
 npm-debug.log
 .DS_Store
+rules/
