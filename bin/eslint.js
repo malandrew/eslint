@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+process.title = "eslint";
+
 var cli = require("../lib/cli");
-var exitCode = cli.execute(Array.prototype.slice.call(process.argv, 2));
-process.exit(exitCode);
+cli.execute(Array.prototype.slice.call(process.argv, 2), function(exitCode){
+    process.exit(exitCode);
+});
+
